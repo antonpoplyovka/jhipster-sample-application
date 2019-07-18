@@ -1,0 +1,24 @@
+entity Shift{
+	id Long,
+    date Date,
+    shiftType Number,
+    neededWorker Number
+}
+entity ShiftWorkers{
+	workerId Long,
+    shiftId Long
+}
+entity WorkerPreferences{
+	workerId Long,
+    preferenceDay Date,
+    shiftType Number,
+    comment String
+}
+
+relationship OneToOne {
+	Department{location} to Location
+}
+
+relationship ManyToMany {
+	Shift{id} to ShiftWorkers{shiftId}
+}
